@@ -23,9 +23,7 @@ Change the stuff in the `.env` file to your liking.
 
 ## Commands
 
-# Note: All commands are case sensitive
-
-# Some commands are still work in progress.
+Note: All commands are case sensitive
 
 say <whatever you want the bot to say>
 help
