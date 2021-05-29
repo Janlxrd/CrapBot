@@ -26,24 +26,24 @@ Change the stuff in the `.env` file to your liking.
 # Note: All commands are case sensitive
 
 say <whatever you want the bot to say>
-help
-a
-tpa
-uuid
-ping
-tps
-coords
-equiparmor (W.I.P)
-kill <username>
-craft <amount> <item>
-list
-equip
-unequip
-use
-come
-fight me
-guard
-tossall
+# help
+# a
+# tpa
+# uuid
+# ping
+# tps
+# coords
+# equiparmor (W.I.P)
+# kill <username>
+# craft <amount> <item>
+# list
+# equip
+# unequip
+# use
+# come
+# fight me
+# guard
+# tossall
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
