@@ -27,7 +27,7 @@ Change the stuff in the `.env` file to your liking.
 
 Note: All commands are case sensitive
 
-* say <whatever you want the bot to say>
+* say
 * help
 * a
 * tpa
@@ -36,8 +36,8 @@ Note: All commands are case sensitive
 * tps
 * coords
 * equiparmor
-* kill <username>
-* craft <amount> <item>
+* kill
+* craft
 * list
 * equip
 * unequip
