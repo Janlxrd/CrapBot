@@ -5,8 +5,9 @@ const client = new Discord.Client()
 let channel = "820618521716719637"
 
 // Other stuff
-const Prefix = '!'
+require('dotenv').config()
 const vec3 = require('vec3')
+const Prefix = process.env.MINECRAFT_PREFIX
 
 // Load mineflayer
 const mineflayer = require('mineflayer')
@@ -25,13 +26,12 @@ const navigatePlugin = require('mineflayer-navigate')(mineflayer)
 //   process.exit(1)
 // }
 
-// LisaEma.minehut.gg
 const bot = mineflayer.createBot({
-  host: 'whysmpyou.minehut.gg',
+  host: process.env.SERVER_ADDRESS,
   // host: process.argv[1],
-  port: 25565,
-  username: 'matesciha@seznam.cz' ? 'matesciha@seznam.cz' : 'inventory' ||'collector' || 'guard',
-  password: 'Mlikovka123'
+  port: process.env.SERVER_PORT, // minecraft default port is 25565
+  username: process.env.MINECRAFT_EMAIL ? process.env.MINECRAFT_EMAIL : 'inventory' ||'collector' || 'guard',
+  password: process.env.MINECRAFT_PASSWORD
 })
 
 bot.on("login", () => {
@@ -59,7 +59,7 @@ function getRandomInt(max) {
 bot.on('chat', (username, message) => {
   const cmd = message.split(' ')
     if (cmd[0] === `${Prefix}say`){
-      if (username != 'Janlxrd'){
+      if (username != process.env.MINECRAFT_MASTER_USERNAME){
         bot.chat(`/w ${username} You cannot do that!`)
       } else {
           bot.chat(message.substring(Prefix.length + 4))
@@ -71,10 +71,10 @@ bot.on('chat', (username, message, player) => {
   const cmd = message.split(' ')[0]
   const command = message.split(' ')
      if (cmd === `${Prefix}help`){
-      bot.chat(`/w ${username} a github repo is coming soon when development is finished`)
+      bot.chat(`/message ${username} a github repo is coming soon when development is finished`)
      }
      if (cmd === `${Prefix}a`){
-         bot.chat(`/w ${username} accepting`)
+         bot.chat(`/message ${username} accepting`)
          bot.chat(`/tpyes`)
 
      }
@@ -466,7 +466,7 @@ bot.on('chat', (username, message) => {
 })
 
 // Login Discord bot
-client.login("NzgwMjAyMTk4NDg2NDgyOTQ0.X7rp6w.HerABLXKKE7uYMe9oOyaFOAoNis")
+client.login(process.env.DISCORD_TOKEN)
 
 client.on('ready', () => {
   console.log(`The discord bot logged in! Username: ${client.user.username}!`)
