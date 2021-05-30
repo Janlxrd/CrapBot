@@ -71,7 +71,7 @@ bot.on('chat', (username, message, player) => {
   const cmd = message.split(' ')[0]
   const command = message.split(' ')
      if (cmd === `${Prefix}help`){
-      bot.chat(`/message ${username} a github repo is coming soon when development is finished`)
+      bot.chat(`/message ${username} You can find the list of commands here: https://github.com/Janlxrd/CrapBot#features`)
      }
      if (cmd === `${Prefix}a`){
          bot.chat(`/message ${username} accepting`)
