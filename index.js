@@ -71,10 +71,9 @@ bot.on('chat', (username, message, player) => {
   const cmd = message.split(' ')[0]
   const command = message.split(' ')
      if (cmd === `${Prefix}help`){
-      bot.chat(`/message ${username} You can find the list of commands here: https://github.com/Janlxrd/CrapBot#features`)
+      bot.chat(`${username}, You can find the list of commands here: https://github.com/Janlxrd/CrapBot#features`)
      }
      if (cmd === `${Prefix}a`){
-         bot.chat(`/message ${username} accepting`)
          bot.chat(`/tpyes`)
 
      }
@@ -443,8 +442,9 @@ bot.on('chat', (username, message) => {
 
 // Redirect Discord messages to in-game chat
 client.on('message', message => {
+  const channel = client.channels.cache.get(process.env.DISCORD_CHANNEL)
   // Only handle messages in specified channel
-  if (message.channel.id !== process.env.DISCORD_CHANNEL.id) return
+  if (message.channel.id !== channel.id) return
   // Ignore messages from the bot itself
   if (message.author.id === client.user.id) return
 
@@ -453,10 +453,11 @@ client.on('message', message => {
 
 // Redirect in-game messages to Discord channel
 bot.on('chat', (username, message) => {
+  const channel = client.channels.cache.get(process.env.DISCORD_CHANNEL)
   // Ignore messages from the bot itself
   if (username === bot.username) return
 
-  process.env.DISCORD_CHANNEL.send(`${username}: ${message}`)
+  channel.send(`${username}: ${message}`)
 })
 
 // Login Discord bot
@@ -464,7 +465,7 @@ client.login(process.env.DISCORD_TOKEN)
 
 client.on('ready', () => {
   console.log(`The discord bot logged in! Username: ${client.user.username}!`)
-  channel = client.channels.cache.get(channel)
+  channel = client.channels.cache.get(process.env.DISCORD_CHANNEL)
   if (!channel) {
     console.log(`I could not find the channel (${channel})!`)
     process.exit(1)
