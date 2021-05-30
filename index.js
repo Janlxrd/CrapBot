@@ -181,19 +181,19 @@ bot.once('spawn', () => {
     bot.pathfinder.setGoal(new GoalNear(playerX, playerY, playerZ, RANGE_GOAL))
   })
   mineflayerViewer(bot, { port: 4868, firstPerson: true }) // port is the minecraft server port, if first person is false, you get a bird's-eye view
-  // setInterval(() => {
-  //   setTimeout(() => {
-  //       bot.look(Math.floor(Math.random() * Math.floor("360")), 0, true, null);
-  //   }, getRandomInt(4 * 60) * 1000);
+  setInterval(() => {
+    setTimeout(() => {
+        bot.look(Math.floor(Math.random() * Math.floor("360")), 0, true, null);
+    }, getRandomInt(4 * 60) * 1000);
 
-  //   setTimeout(() => {
-  //       bot.swingArm("left");
-  //   }, getRandomInt(5 * 60) * 1000);
+    setTimeout(() => {
+        bot.swingArm("left");
+    }, getRandomInt(5 * 60) * 1000);
 
-  //   bot.setControlState('jump', true)
-  //   bot.setControlState('jump', false)
-  // },
-  // getRandomInt(3 * 60) * 1000);
+    bot.setControlState('jump', true)
+    bot.setControlState('jump', false)
+  },
+  getRandomInt(3 * 60) * 1000);
 });
 
 bot.on('health', () => {
