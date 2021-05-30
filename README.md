@@ -21,7 +21,7 @@ npm i
 
 ## Usage
 
-Change the stuff in the `.env` file to your liking.
+Change the stuff in the `.env` file to your liking. (Quotes not required)
 
 ## Features
 
