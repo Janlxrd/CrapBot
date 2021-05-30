@@ -2,7 +2,7 @@
 const delay = require('delay')
 const Discord = require('discord.js')
 const client = new Discord.Client()
-let channel = process.env.DISCORD_CHANNEL
+// let channel = process.env.DISCORD_CHANNEL
 
 // Other stuff
 require('dotenv').config()
@@ -444,7 +444,7 @@ bot.on('chat', (username, message) => {
 // Redirect Discord messages to in-game chat
 client.on('message', message => {
   // Only handle messages in specified channel
-  if (message.channel.id !== channel.id) return
+  if (message.channel.id !== process.env.DISCORD_CHANNEL.id) return
   // Ignore messages from the bot itself
   if (message.author.id === client.user.id) return
 
@@ -456,7 +456,7 @@ bot.on('chat', (username, message) => {
   // Ignore messages from the bot itself
   if (username === bot.username) return
 
-  channel.send(`${username}: ${message}`)
+  process.env.DISCORD_CHANNEL.send(`${username}: ${message}`)
 })
 
 // Login Discord bot
