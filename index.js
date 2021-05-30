@@ -80,8 +80,8 @@ bot.on('chat', (username, message, player) => {
     
      
       if (cmd === `${Prefix}tpa`){
-        if (username !== 'Janlxrd') return;
-        bot.chat(`/tpa janlxrd`)
+        if (username !== process.env.MINECRAFT_MASTER_USERNAME) return;
+        bot.chat(`/tpa ${username}`)
       }
       if (cmd === `${Prefix}uuid`) {
          bot.chat(`, Your uuid is ${bot.players[username].uuid}!`,)
