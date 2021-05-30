@@ -12,7 +12,7 @@ First, you need to install [node](http://nodejs.org/) , you might want to read [
 
 1. Clone the repo
 ```
-git clone https://github.com/Janlxrd/minecraftbot.git
+git clone https://github.com/Janlxrd/CrapBot.git
 ```
 2. Install all packages needed
 ```
