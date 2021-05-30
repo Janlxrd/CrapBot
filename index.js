@@ -137,6 +137,9 @@ bot.on('chat', (username, message, player) => {
         if (command[0] === `${Prefix}use`) {
           useEquippedItem()
         }
+        if (command[0] === `${Prefix}tossall`) {
+          tossAll()
+        }
   });
 
 // Load plugins
@@ -199,6 +202,11 @@ bot.on('health', () => {
   else bot.autoEat.enable() // Else enable the plugin again
 })
 
+function tossAll () {
+  if (bot.inventory.items().length === 0) return
+  const item = bot.inventory.items()[0]
+  bot.tossStack(item, tossAll)
+}
 
 // Wait for someone to say something
 bot.on('chat', (username, message) => {
